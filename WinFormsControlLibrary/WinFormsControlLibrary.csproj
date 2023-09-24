@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="FieldForInt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ListOfValues.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="TableOfValues.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
