@@ -59,8 +59,8 @@ namespace WinFormsApp
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox.Checked) { textBox.Hide(); }
-            else { textBox.Show(); }
+            if (checkBox.Checked) { textBox.ReadOnly = true; }
+            else { textBox.ReadOnly = false; }
         }
     }
 }
