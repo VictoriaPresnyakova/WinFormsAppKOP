@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp
+﻿namespace WinFormsControlLibrary
 {
     partial class TableOfValues
     {
@@ -28,10 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(40, 41);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersWidth = 62;
+            this.dataGridView.RowTemplate.Height = 33;
+            this.dataGridView.Size = new System.Drawing.Size(360, 193);
+            this.dataGridView.TabIndex = 0;
+            // 
+            // TableOfValues
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dataGridView);
+            this.Name = "TableOfValues";
+            this.Size = new System.Drawing.Size(441, 279);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private DataGridView dataGridView;
     }
 }

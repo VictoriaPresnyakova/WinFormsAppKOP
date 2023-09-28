@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp
+﻿using WinFormsControlLibrary;
+
+namespace WinFormsApp
 {
     partial class Form1
     {
@@ -28,8 +30,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listOfValues1 = new WinFormsApp.ListOfValues();
-            this.fieldForInt1 = new WinFormsApp.FieldForInt();
+            this.listOfValues1 = new WinFormsControlLibrary.ListOfValues();
+            this.fieldForInt1 = new WinFormsControlLibrary.FieldForInt();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();

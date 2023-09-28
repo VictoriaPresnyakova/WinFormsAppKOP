@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp
+﻿namespace WinFormsControlLibrary
 {
     partial class FieldForInt
     {

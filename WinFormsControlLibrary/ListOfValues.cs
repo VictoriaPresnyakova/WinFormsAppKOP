@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace WinFormsApp
+namespace WinFormsControlLibrary
 {
     public partial class ListOfValues : UserControl
     {
