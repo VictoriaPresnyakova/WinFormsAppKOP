@@ -37,6 +37,11 @@ namespace WinFormsApp
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tableOfValues1 = new WinFormsControlLibrary.TableOfValues();
+            this.buttonAddConfig = new System.Windows.Forms.Button();
+            this.AddCells = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listOfValues1
@@ -103,11 +108,64 @@ namespace WinFormsApp
             this.textBox1.Size = new System.Drawing.Size(150, 31);
             this.textBox1.TabIndex = 7;
             // 
+            // tableOfValues1
+            // 
+            this.tableOfValues1.Location = new System.Drawing.Point(413, 12);
+            this.tableOfValues1.Name = "tableOfValues1";
+            this.tableOfValues1.SelectedRowIndex = -1;
+            this.tableOfValues1.Size = new System.Drawing.Size(662, 418);
+            this.tableOfValues1.TabIndex = 8;
+            // 
+            // buttonAddConfig
+            // 
+            this.buttonAddConfig.Location = new System.Drawing.Point(1081, 12);
+            this.buttonAddConfig.Name = "buttonAddConfig";
+            this.buttonAddConfig.Size = new System.Drawing.Size(112, 34);
+            this.buttonAddConfig.TabIndex = 9;
+            this.buttonAddConfig.Text = "Add config";
+            this.buttonAddConfig.UseVisualStyleBackColor = true;
+            this.buttonAddConfig.Click += new System.EventHandler(this.buttonAddConfig_Click);
+            // 
+            // AddCells
+            // 
+            this.AddCells.Location = new System.Drawing.Point(1081, 59);
+            this.AddCells.Name = "AddCells";
+            this.AddCells.Size = new System.Drawing.Size(112, 34);
+            this.AddCells.TabIndex = 10;
+            this.AddCells.Text = "Add Cells";
+            this.AddCells.UseVisualStyleBackColor = true;
+            this.AddCells.Click += new System.EventHandler(this.buttonAddCells_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1081, 112);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(112, 34);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Clear";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(1081, 162);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(112, 59);
+            this.button6.TabIndex = 12;
+            this.button6.Text = "Get Selected";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.buttonGetSelected_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1202, 450);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.AddCells);
+            this.Controls.Add(this.buttonAddConfig);
+            this.Controls.Add(this.tableOfValues1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -130,5 +188,10 @@ namespace WinFormsApp
         private Button button3;
         private Button button4;
         private TextBox textBox1;
+        private TableOfValues tableOfValues1;
+        private Button buttonAddConfig;
+        private Button AddCells;
+        private Button button5;
+        private Button button6;
     }
 }
