@@ -13,7 +13,6 @@ namespace WinFormsApp
 {
     public partial class ListOfValues : UserControl
     {
-        private string? SelectedValue = string.Empty;
         public ListOfValues()
         {
             InitializeComponent();
@@ -39,13 +38,17 @@ namespace WinFormsApp
         {
             get
             {
-                return SelectedValue;
+                if (listBox.SelectedItem != null)
+                {
+                    return listBox.SelectedItem.ToString();
+                }
+                return string.Empty;
             }
             set
             {
                 if (listBox.Items.Contains(value))
                 {
-                    SelectedValue = value;
+                    listBox.SelectedItem = value;
                 }
             }
         }

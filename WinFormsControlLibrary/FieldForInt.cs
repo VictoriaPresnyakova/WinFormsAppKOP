@@ -14,27 +14,63 @@ namespace WinFormsApp
 {
     public partial class FieldForInt : UserControl
     {
+        private EventHandler? _textChangedEvent;
+        private event Action? _errorOccured;
+        public string Error { get; private set; }
+
         public FieldForInt()
         {
             InitializeComponent();
+            Error = string.Empty;
+
         }
+
+        public event Action AnErrorOccurred
+        {
+            add { _errorOccured += value; }
+            remove { _errorOccured -= value; }
+        }
+
 
         public string? TextBoxValue
         {
             get
             {
-                
+                if (string.IsNullOrEmpty(textBox.Text) && !checkBox.Checked)
+                {
+                    Error = "not a number";
+                    _errorOccured?.Invoke();
+                    return null;
+                }
+                if (!checkBox.Checked && !int.TryParse(textBox.Text, out int _))
+                {
+                    Error = "not a number";
+                    _errorOccured?.Invoke();
+                    return null;
+                }
                 return textBox.Text;
                 
             }
             set
             {
+                if (!string.IsNullOrEmpty(value) && !int.TryParse(value, out int _))
+                {
+                    Error = "not a number";
+                    _errorOccured?.Invoke();
+                    return;
+                }
                 textBox.Text = value;
+                if (!string.IsNullOrEmpty(value)) {
+                    checkBox.Checked = false;
+                }
+                else
+                {
+                    checkBox.Checked = true;
+                }
 
             }
         }
 
-        private EventHandler? _textChangedEvent;
         public event EventHandler TextChangedEvent
         {
             add
@@ -59,7 +95,10 @@ namespace WinFormsApp
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox.Checked) { textBox.ReadOnly = true; }
+            if (checkBox.Checked) { 
+                textBox.ReadOnly = true;
+                textBox.Text = null;
+            }
             else { textBox.ReadOnly = false; }
         }
     }
