@@ -11,8 +11,8 @@ namespace WinFormsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string? val = fieldForInt1.TextBoxValue;
-            
+            int? val = fieldForInt1.TextBoxValue;
+            //fieldForInt1.TextBoxValue = null;
         }
 
         private void button2_Click(object sender, EventArgs e)

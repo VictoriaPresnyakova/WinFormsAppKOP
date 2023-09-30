@@ -58,7 +58,7 @@ namespace WinFormsApp
             this.fieldForInt1.Name = "fieldForInt1";
             this.fieldForInt1.Size = new System.Drawing.Size(225, 225);
             this.fieldForInt1.TabIndex = 2;
-            this.fieldForInt1.TextBoxValue = "";
+            this.fieldForInt1.TextBoxValue = null;
             // 
             // button1
             // 

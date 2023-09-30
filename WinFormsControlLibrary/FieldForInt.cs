@@ -32,41 +32,34 @@ namespace WinFormsControlLibrary
         }
 
 
-        public string? TextBoxValue
+        public int? TextBoxValue
         {
             get
             {
-                if (string.IsNullOrEmpty(textBox.Text) && !checkBox.Checked)
+                if (checkBox.Checked)
+                {
+                    return null;
+                }
+                if (string.IsNullOrEmpty(textBox.Text))
                 {
                     Error = "not a number";
                     _errorOccured?.Invoke();
                     return null;
                 }
-                if (!checkBox.Checked && !int.TryParse(textBox.Text, out int _))
+                if (!int.TryParse(textBox.Text, out int number))
                 {
                     Error = "not a number";
                     _errorOccured?.Invoke();
                     return null;
                 }
-                return textBox.Text;
+               
+                return number;
                 
             }
             set
             {
-                if (!string.IsNullOrEmpty(value) && !int.TryParse(value, out int _))
-                {
-                    Error = "not a number";
-                    _errorOccured?.Invoke();
-                    return;
-                }
-                textBox.Text = value;
-                if (!string.IsNullOrEmpty(value)) {
-                    checkBox.Checked = false;
-                }
-                else
-                {
-                    checkBox.Checked = true;
-                }
+                textBox.Text = value?.ToString();
+                checkBox.Checked = (value == null);
 
             }
         }
@@ -85,12 +78,16 @@ namespace WinFormsControlLibrary
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
+            if (int.TryParse(textBox.Text, out int number))
+            {
+                TextBoxValue = number;
+            }
             _textChangedEvent?.Invoke(sender, e);
         }
 
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !(e.KeyChar == '-');
         }
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
@@ -100,6 +97,9 @@ namespace WinFormsControlLibrary
                 textBox.Text = null;
             }
             else { textBox.ReadOnly = false; }
+            _textChangedEvent?.Invoke(sender, e);
+
         }
+
     }
 }
