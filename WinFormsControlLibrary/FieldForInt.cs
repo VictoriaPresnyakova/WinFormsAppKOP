@@ -59,8 +59,7 @@ namespace WinFormsControlLibrary
             set
             {
                 textBox.Text = value?.ToString();
-                checkBox.Checked = (value == null);
-
+                checkBox.Checked = !value.HasValue;
             }
         }
 
