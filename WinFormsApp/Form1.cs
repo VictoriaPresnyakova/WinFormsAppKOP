@@ -1,4 +1,4 @@
-using WinFormsControlLibrary;
+﻿using WinFormsControlLibrary;
 
 namespace WinFormsApp
 {
@@ -7,12 +7,36 @@ namespace WinFormsApp
         public Form1()
         {
             InitializeComponent();
+            var pdfGenerator = new TablePdfComponent1();
+            var tables = new TableData[]
+            {
+            new TableData
+            {
+                Columns = 3,
+                Data = new string[][]
+                {
+                    new string[] { "Value 1", "Value 2", "Value 3" },
+                    new string[] { "Value 1", "Value 2", "Value 3" },
+                    new string[] {"Value 1", "Value 2", "Value 3" }
+                }
+            },
+                //другие таблицы по аналогии
+            };
+
+            try
+            {
+                pdfGenerator.GeneratePdf("C:\\Users\\60652\\Downloads\\example.pdf", "Title", tables);
+                Console.WriteLine("PDF файл успешно создан.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             int? val = fieldForInt1.TextBoxValue;
-            //fieldForInt1.TextBoxValue = null;
         }
 
         private void button2_Click(object sender, EventArgs e)
