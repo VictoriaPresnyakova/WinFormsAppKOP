@@ -7,7 +7,7 @@ namespace WinFormsApp
         public Form1()
         {
             InitializeComponent();
-            var pdfGenerator = new TablePdfComponent1();
+            var pdfgenerator = new TablePdfComponent1();
             var tables = new TableData[]
             {
             new TableData
@@ -15,9 +15,9 @@ namespace WinFormsApp
                 Columns = 3,
                 Data = new string[][]
                 {
-                    new string[] { "Value 1", "Value 2", "Value 3" },
-                    new string[] { "Value 1", "Value 2", "Value 3" },
-                    new string[] {"Value 1", "Value 2", "Value 3" }
+                    new string[] { "value 1", "value 2", "value 3" },
+                    new string[] { "value 1", "value 2", "value 3" },
+                    new string[] {"value 1", "value 2", "value 3" }
                 }
             },
                 //другие таблицы по аналогии
@@ -25,13 +25,23 @@ namespace WinFormsApp
 
             try
             {
-                pdfGenerator.GeneratePdf("C:\\Users\\60652\\Downloads\\example.pdf", "Title", tables);
-                Console.WriteLine("PDF файл успешно создан.");
+                pdfgenerator.GeneratePdf("c:\\users\\60652\\downloads\\example.pdf", "title", tables);
+                Console.WriteLine("pdf файл успешно создан.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка: {ex.Message}");
+                MessageBox.Show($"ошибка: {ex.Message}");
             }
+
+            //var generator = new GistogramPdfComponent3();
+            //var data = new List<HistogramData>
+            //{
+            //    new HistogramData { SeriesName = "Series 1", Data = new double[] { 10, 20, 30, 40, 50 } },
+            //    new HistogramData { SeriesName = "Series 2", Data = new double[] { 15, 25, 35, 45, 55 } }
+            //};
+
+            //generator.GenerateHistogramDocument("C:\\Users\\60652\\Downloads\\example.pdf", "Histogram Document", "Chart Title", LegendPosition.TopRight, data);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
