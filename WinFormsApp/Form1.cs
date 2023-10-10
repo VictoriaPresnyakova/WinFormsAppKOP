@@ -7,40 +7,40 @@ namespace WinFormsApp
         public Form1()
         {
             InitializeComponent();
-            var pdfgenerator = new TablePdfComponent1();
-            var tables = new TableData[]
-            {
-            new TableData
-            {
-                Columns = 3,
-                Data = new string[][]
-                {
-                    new string[] { "value 1", "value 2", "value 3" },
-                    new string[] { "value 1", "value 2", "value 3" },
-                    new string[] {"value 1", "value 2", "value 3" }
-                }
-            },
-                //другие таблицы по аналогии
-            };
-
-            try
-            {
-                pdfgenerator.GeneratePdf("c:\\users\\60652\\downloads\\example.pdf", "title", tables);
-                Console.WriteLine("pdf файл успешно создан.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"ошибка: {ex.Message}");
-            }
-
-            //var generator = new GistogramPdfComponent3();
-            //var data = new List<HistogramData>
+            //var pdfgenerator = new TablePdfComponent1();
+            //var tables = new TableData[]
             //{
-            //    new HistogramData { SeriesName = "Series 1", Data = new double[] { 10, 20, 30, 40, 50 } },
-            //    new HistogramData { SeriesName = "Series 2", Data = new double[] { 15, 25, 35, 45, 55 } }
+            //new TableData
+            //{
+            //    Columns = 3,
+            //    Data = new string[][]
+            //    {
+            //        new string[] { "value 1", "value 2", "value 3" },
+            //        new string[] { "value 1", "value 2", "value 3" },
+            //        new string[] {"value 1", "value 2", "value 3" }
+            //    }
+            //},
+            //    //другие таблицы по аналогии
             //};
 
-            //generator.GenerateHistogramDocument("C:\\Users\\60652\\Downloads\\example.pdf", "Histogram Document", "Chart Title", LegendPosition.TopRight, data);
+            //try
+            //{
+            //    pdfgenerator.GeneratePdf("c:\\users\\60652\\downloads\\example.pdf", "title", tables);
+            //    Console.WriteLine("pdf файл успешно создан.");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"ошибка: {ex.Message}");
+            //}
+
+            var generator = new GistogramPdfComponent3();
+            var data = new List<HistogramData>
+            {
+                new HistogramData { SeriesName = "Series 1", Data = new double[] { 10, 20, 30, 40, 50 } },
+                new HistogramData { SeriesName = "Series 2", Data = new double[] { 15, 25, 35, 45, 55 } }
+            };
+
+            generator.GenerateHistogramDocument("C:\\Users\\60652\\Downloads\\gist.pdf", "Histogram Document", "Chart Title", LegendPosition.TopRight, data);
 
         }
 

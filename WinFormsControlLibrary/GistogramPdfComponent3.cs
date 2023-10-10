@@ -7,9 +7,10 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms.DataVisualization.Charting;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
-using PdfSharpCore.Drawing;
-using PdfSharpCore.Pdf;
+using Microsoft.VisualBasic.ApplicationServices;
 
 
 namespace WinFormsControlLibrary
@@ -30,61 +31,69 @@ namespace WinFormsControlLibrary
 
         public void GenerateHistogramDocument(string fileName, string documentTitle, string chartTitle, LegendPosition legendPosition, List<HistogramData> data)
         {
-            if (string.IsNullOrEmpty(fileName) || string.IsNullOrEmpty(documentTitle) || string.IsNullOrEmpty(chartTitle) || data == null || data.Count == 0)
+            if (string.IsNullOrWhiteSpace(fileName) ||
+            string.IsNullOrWhiteSpace(documentTitle) ||
+            string.IsNullOrWhiteSpace(chartTitle) ||
+            data == null || data.Count == 0)
             {
-                throw new ArgumentException("Invalid input data.");
+                throw new ArgumentException("Invalid input data");
             }
 
             // Создаем новый документ PDF
-            PdfDocument document = new PdfDocument();
-            PdfPage page = document.AddPage();
-            XGraphics gfx = XGraphics.FromPdfPage(page);
-            XFont titleFont = new XFont("Arial", 16, XFontStyle.Bold);
-
-            // Добавляем заголовок документа
-            gfx.DrawString(documentTitle, titleFont, XBrushes.Black, new XRect(0, 20, page.Width, 0), XStringFormats.TopCenter);
-
-            // Создаем график и сохраняем его как изображение
-            string chartFileName = "chart.png";
-            GenerateChartImage(chartFileName, chartTitle, legendPosition, data);
-
-            // Добавляем изображение графика в PDF
-            XImage chartImage = XImage.FromFile(chartFileName);
-            gfx.DrawImage(chartImage, (page.Width - chartImage.PixelWidth) / 2, 60, chartImage.PixelWidth, chartImage.PixelHeight);
-
-            // Закрываем документ
-            document.Save(fileName);
-            document.Close();
-
-            // Удаляем временное изображение
-            File.Delete(chartFileName);
-        }
-
-        private void GenerateChartImage(string fileName, string chartTitle, LegendPosition legendPosition, List<HistogramData> data)
-        {
-            var chart = new Chart();
-            chart.Width = 600;
-            chart.Height = 400;
-
-            // Добавляем заголовок
-            var title = new Title();
-            title.Text = chartTitle;
-            title.Alignment = ContentAlignment.TopCenter;
-            chart.Titles.Add(title);
-
-            // Добавляем легенду
-            chart.Legends.Add(new Legend(legendPosition.ToString()));
-
-            // Добавляем серии данных
-            foreach (var seriesData in data)
+            using (var document = new Document())
             {
-                var series = new Series(seriesData.SeriesName);
-                series.Points.DataBindY(seriesData.Data);
-                chart.Series.Add(series);
+                // Указываем путь к файлу PDF
+                PdfWriter.GetInstance(document, new FileStream(fileName, FileMode.OpenOrCreate));
+
+                document.Open();
+
+                // Добавляем заголовок документа
+                document.Add(new Paragraph(documentTitle));
+
+                // Создаем график
+                Chart chart = new Chart();
+                chart.Width = 500;
+                chart.Height = 300;
+
+                // Настраиваем график
+                chart.Titles.Add(new Title(chartTitle));
+                chart.Legends.Add(new Legend(legendPosition.ToString()));
+
+                // Создаем область для графика
+                ChartArea chartArea = new ChartArea();
+                chart.ChartAreas.Add(chartArea);
+
+                // Добавляем данные в график
+                foreach (var dataPoint in data)
+                {
+                    Series series = new Series();
+                    series.ChartType = SeriesChartType.Column;
+
+                    if (dataPoint.Data != null && dataPoint.Data.Length > 0)
+                    {
+                        for (int i = 0; i < dataPoint.Data.Length; i++)
+                        {
+                            series.Points.AddXY(i + 1, dataPoint.Data[i]);
+                        }
+                    }
+
+                    chart.Series.Add(series);
+                }
+
+                // Рендерим график в изображение
+                using (var chartImageStream = new MemoryStream())
+                {
+                    chart.SaveImage(chartImageStream, ChartImageFormat.Png);
+                    chartImageStream.Position = 0;
+
+                    // Добавляем изображение в PDF
+                    var chartImage = iTextSharp.text.Image.GetInstance(chartImageStream);
+                    document.Add(chartImage);
+                }
+
+                document.Close();
             }
 
-            // Сохраняем график как изображение PNG
-            chart.SaveImage(fileName, ChartImageFormat.Png);
-        }
         }
     }
+}
