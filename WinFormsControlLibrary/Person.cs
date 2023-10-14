@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormsApp
+namespace WinFormsControlLibrary
 {
     public class Person
     {
+
         public string Name { get; private set; }
         public int Age { get; private set; }
         public int Height { get; private set; }

@@ -42,6 +42,9 @@ namespace WinFormsApp
             this.AddCells = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.buttonTable = new System.Windows.Forms.Button();
+            this.buttonCustomTable = new System.Windows.Forms.Button();
+            this.buttonHistogram = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listOfValues1
@@ -156,11 +159,44 @@ namespace WinFormsApp
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.buttonGetSelected_Click);
             // 
+            // buttonTable
+            // 
+            this.buttonTable.Location = new System.Drawing.Point(977, 265);
+            this.buttonTable.Name = "buttonTable";
+            this.buttonTable.Size = new System.Drawing.Size(137, 34);
+            this.buttonTable.TabIndex = 13;
+            this.buttonTable.Text = "buttonTable";
+            this.buttonTable.UseVisualStyleBackColor = true;
+            this.buttonTable.Click += new System.EventHandler(this.buttonTable_Click);
+            // 
+            // buttonCustomTable
+            // 
+            this.buttonCustomTable.Location = new System.Drawing.Point(977, 316);
+            this.buttonCustomTable.Name = "buttonCustomTable";
+            this.buttonCustomTable.Size = new System.Drawing.Size(137, 34);
+            this.buttonCustomTable.TabIndex = 14;
+            this.buttonCustomTable.Text = "buttonCustomTable";
+            this.buttonCustomTable.UseVisualStyleBackColor = true;
+            this.buttonCustomTable.Click += new System.EventHandler(this.buttonCustomTable_Click);
+            // 
+            // buttonHistogram
+            // 
+            this.buttonHistogram.Location = new System.Drawing.Point(977, 372);
+            this.buttonHistogram.Name = "buttonHistogram";
+            this.buttonHistogram.Size = new System.Drawing.Size(137, 34);
+            this.buttonHistogram.TabIndex = 15;
+            this.buttonHistogram.Text = "buttonHistogram";
+            this.buttonHistogram.UseVisualStyleBackColor = true;
+            this.buttonHistogram.Click += new System.EventHandler(this.buttonHistogram_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 450);
+            this.Controls.Add(this.buttonHistogram);
+            this.Controls.Add(this.buttonCustomTable);
+            this.Controls.Add(this.buttonTable);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.AddCells);
@@ -193,5 +229,8 @@ namespace WinFormsApp
         private Button AddCells;
         private Button button5;
         private Button button6;
+        private Button buttonTable;
+        private Button buttonCustomTable;
+        private Button buttonHistogram;
     }
 }

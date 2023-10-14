@@ -7,41 +7,6 @@ namespace WinFormsApp
         public Form1()
         {
             InitializeComponent();
-            //var pdfgenerator = new TablePdfComponent1();
-            //var tables = new TableData[]
-            //{
-            //new TableData
-            //{
-            //    Columns = 3,
-            //    Data = new string[][]
-            //    {
-            //        new string[] { "value 1", "value 2", "value 3" },
-            //        new string[] { "value 1", "value 2", "value 3" },
-            //        new string[] {"value 1", "value 2", "value 3" }
-            //    }
-            //},
-            //    //другие таблицы по аналогии
-            //};
-
-            //try
-            //{
-            //    pdfgenerator.GeneratePdf("c:\\users\\60652\\downloads\\example.pdf", "title", tables);
-            //    Console.WriteLine("pdf файл успешно создан.");
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"ошибка: {ex.Message}");
-            //}
-
-            var generator = new GistogramPdfComponent3();
-            var data = new List<HistogramData>
-            {
-                new HistogramData { SeriesName = "Series 1", Data = new double[] { 10, 20, 30, 40, 50 } },
-                new HistogramData { SeriesName = "Series 2", Data = new double[] { 15, 25, 35, 45, 55 } }
-            };
-
-            generator.GenerateHistogramDocument("C:\\Users\\60652\\Downloads\\gist.pdf", "Histogram Document", "Chart Title", LegendPosition.TopRight, data);
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -93,6 +58,77 @@ namespace WinFormsApp
         private void buttonGetSelected_Click(object sender, EventArgs e)
         {
             MessageBox.Show((tableOfValues1.GetSelectedObject<Person>()).ToString());
+        }
+
+        private void buttonTable_Click(object sender, EventArgs e)
+        {
+            var pdfgenerator = new TablePdfComponent1();
+            var tables = new TableData[]
+            {
+            new TableData
+            {
+                Columns = 3,
+                Data = new string[][]
+                {
+                    new string[] { "value 1", "value 2", "value 3" },
+                    new string[] { "value 1", "value 2", "value 3" },
+                    new string[] {"value 1", "value 2", "value 3" }
+                }
+            },
+            new TableData
+            {
+                Columns = 3,
+                Data = new string[][]
+                {
+                    new string[] { "value 1", "value 2", "value 3" },
+                    new string[] { "value 1", "value 2", "value 3" },
+                    new string[] {"value 1", "value 2", "value 3" }
+                }
+            },            };
+            try
+            {
+                pdfgenerator.GeneratePdf("c:\\users\\60652\\downloads\\table.pdf", "title", tables);
+                Console.WriteLine("pdf файл успешно создан.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ошибка: {ex.Message}");
+            }
+        }
+
+        private void buttonCustomTable_Click(object sender, EventArgs e)
+        {
+            CustomTablePdfComponent2 generator = new CustomTablePdfComponent2();
+
+            var columnConfigs = new List<ColumnConfig>
+            {
+                new ColumnConfig { Width = 100f, PropertyName = "Age" },
+                new ColumnConfig { Width = 140f, PropertyName = "Name" },
+                new ColumnConfig { Width = 160f, PropertyName = "Height" },
+            };
+
+            Person person1 = new Person("P1", 30, 180);
+            Person person2 = new Person("P2", 18, 175);
+            Person person3 = new Person("P3", 20, 170);
+
+
+            generator.GenerateDocument("c:\\users\\60652\\downloads\\customtable.pdf", "Sample Document", 100f, 50f, new List<Person> { person1, person2, person3 }, columnConfigs);
+
+        }
+
+        private void buttonHistogram_Click(object sender, EventArgs e)
+        {
+           
+
+            var generator = new GistogramPdfComponent3();
+            var data = new List<HistogramData>
+            {
+                new HistogramData { SeriesName = "Series 1", Data = new double[] { 10, 20, 30, 40, 50 } },
+                new HistogramData { SeriesName = "Series 2", Data = new double[] { 15, 25, 35, 45, 55 } }
+            };
+
+            generator.GenerateHistogramDocument("C:\\Users\\60652\\Downloads\\gist.pdf", "Histogram Document", "Chart Title", LegendPosition.TopRight, data);
+
         }
     }
 }
