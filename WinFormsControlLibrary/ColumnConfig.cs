@@ -10,5 +10,7 @@ namespace WinFormsControlLibrary
     {
         public float Width { get; set; }
         public string PropertyName { get; set; }
+        public string ShowName { get; set; }
+
     }
 }

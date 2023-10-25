@@ -102,9 +102,9 @@ namespace WinFormsApp
 
             var columnConfigs = new List<ColumnConfig>
             {
-                new ColumnConfig { Width = 100f, PropertyName = "Age" },
-                new ColumnConfig { Width = 140f, PropertyName = "Name" },
-                new ColumnConfig { Width = 160f, PropertyName = "Height" },
+                new ColumnConfig { Width = 100f, PropertyName = "Age", ShowName = "Age"},
+                new ColumnConfig { Width = 140f, PropertyName = "Name", ShowName = "Name" },
+                new ColumnConfig { Width = 160f, PropertyName = "Height", ShowName = "Height" },
             };
 
             Person person1 = new Person("P1", 30, 180);

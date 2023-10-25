@@ -55,7 +55,7 @@ namespace WinFormsControlLibrary
             //add header
             for (int i = 0; i < columnConfigs.Count; i++)
             {
-                PdfPCell cell = new PdfPCell(new Phrase(columnConfigs[i].PropertyName, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12)));
+                PdfPCell cell = new PdfPCell(new Phrase(columnConfigs[i].ShowName, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12)));
                 cell.FixedHeight = Headerheights;
                 table.AddCell(cell);
             }
