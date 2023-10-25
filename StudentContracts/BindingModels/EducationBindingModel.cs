@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace StudentContracts.BindingModels
 {
-    internal class Education
+    public class EducationBindingModel
     {
+        public int? Id { get; set; }
+
+        public string Name { get; set; }
     }
 }
