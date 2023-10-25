@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormsControlLibrary
+namespace WinFormsApp
 {
     public class Person
     {
