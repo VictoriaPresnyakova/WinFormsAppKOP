@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentContracts.BindingModels
+namespace DataBaseImplements.Models
 {
-    public class StudentBindingModel
+    public class Student
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
-        public List<float> Av_Score { get; set; }
-
+        [Required]
+        public string Av_Score { get; set; }
+        [Required]
         public string Education_Form { get; set; }
-
+        [Required]
         public DateTime Date { get; set; }
     }
 }

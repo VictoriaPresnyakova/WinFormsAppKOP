@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentContracts", "..\Stud
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogics", "..\BusinessLogics\BusinessLogics.csproj", "{F90D87F5-49DF-4236-A779-5D23C5734EC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseImplements", "..\DataBaseImplements\DataBaseImplements.csproj", "{0B88CACF-8450-4758-88F4-58B0CD5A6147}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F90D87F5-49DF-4236-A779-5D23C5734EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F90D87F5-49DF-4236-A779-5D23C5734EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F90D87F5-49DF-4236-A779-5D23C5734EC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B88CACF-8450-4758-88F4-58B0CD5A6147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B88CACF-8450-4758-88F4-58B0CD5A6147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B88CACF-8450-4758-88F4-58B0CD5A6147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B88CACF-8450-4758-88F4-58B0CD5A6147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

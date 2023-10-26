@@ -15,7 +15,7 @@ namespace StudentContracts.ViewModels
         public string Name { get; set; }
 
         [DisplayName("Средний балл")]
-        public Dictionary<string, float> Av_Score { get; set; }
+        public List<float> Av_Score { get; set; }
 
         [DisplayName("Форма обучения")]
         public string Education_Form { get; set; }

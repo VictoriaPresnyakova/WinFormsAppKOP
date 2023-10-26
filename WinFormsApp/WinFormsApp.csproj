@@ -10,9 +10,14 @@
 
   <ItemGroup>
     <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataBaseImplements\DataBaseImplements.csproj" />
     <ProjectReference Include="..\WinFormsControlLibrary\WinFormsControlLibrary.csproj" />
   </ItemGroup>
 
