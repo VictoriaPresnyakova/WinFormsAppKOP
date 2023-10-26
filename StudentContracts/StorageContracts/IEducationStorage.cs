@@ -19,4 +19,4 @@ namespace StudentContracts.StorageContracts
         void Delete(EducationBindingModel model);
     }
 }
-}
+
