@@ -7,6 +7,12 @@ namespace WinFormsApp
         public Form1()
         {
             InitializeComponent();
+            // componentlBox1.AddInListBox<>
+            Person person1 = new Person("P1", 30, 180);
+            Person person2 = new Person("P2", 18, 175);
+            Person person3 = new Person("P3", 20, 170);
+            componentlBox1.SetLayoutInfo("name {Name} Age {Age} Height {Height}", "{", "}");
+            componentlBox1.AddInListBox(new List<Person> { person1, person2, person3 });
         }
 
         private void button1_Click(object sender, EventArgs e)

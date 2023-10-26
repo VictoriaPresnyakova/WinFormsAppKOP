@@ -103,7 +103,7 @@ namespace DataBaseImplements.Implements
         private static Student CreateModel(StudentBindingModel model, Student student)
         {
             student.Name = model.Name;
-            student.Av_Score = model.Av_Score.ToString();
+            student.Av_Score = String.Join(" ", model.Av_Score.Select(n => n.ToString()));
             student.Education_Form = model.Education_Form;
             student.Date = model.Date;
 

@@ -45,6 +45,7 @@ namespace WinFormsApp
             this.buttonTable = new System.Windows.Forms.Button();
             this.buttonCustomTable = new System.Windows.Forms.Button();
             this.buttonHistogram = new System.Windows.Forms.Button();
+            this.componentlBox1 = new COPWinForms.ComponentLBox();
             this.SuspendLayout();
             // 
             // listOfValues1
@@ -189,11 +190,21 @@ namespace WinFormsApp
             this.buttonHistogram.UseVisualStyleBackColor = true;
             this.buttonHistogram.Click += new System.EventHandler(this.buttonHistogram_Click);
             // 
+            // componentlBox1
+            // 
+            this.componentlBox1.Location = new System.Drawing.Point(344, 265);
+            this.componentlBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.componentlBox1.Name = "componentlBox1";
+            this.componentlBox1.SelectedIndex = -1;
+            this.componentlBox1.Size = new System.Drawing.Size(526, 282);
+            this.componentlBox1.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1202, 450);
+            this.ClientSize = new System.Drawing.Size(1202, 547);
+            this.Controls.Add(this.componentlBox1);
             this.Controls.Add(this.buttonHistogram);
             this.Controls.Add(this.buttonCustomTable);
             this.Controls.Add(this.buttonTable);
@@ -232,5 +243,6 @@ namespace WinFormsApp
         private Button buttonTable;
         private Button buttonCustomTable;
         private Button buttonHistogram;
+        private COPWinForms.ComponentLBox componentlBox1;
     }
 }
