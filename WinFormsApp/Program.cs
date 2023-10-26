@@ -19,7 +19,7 @@ namespace WinFormsApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Container.Resolve<FormEducation>());
+            Application.Run(Container.Resolve<FormMain>());
         }
         private static IUnityContainer BuildUnityContainer()
         {

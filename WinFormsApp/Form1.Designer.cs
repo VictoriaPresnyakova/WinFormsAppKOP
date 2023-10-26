@@ -114,10 +114,11 @@ namespace WinFormsApp
             // 
             // tableOfValues1
             // 
-            this.tableOfValues1.Location = new System.Drawing.Point(413, 12);
+            this.tableOfValues1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableOfValues1.Location = new System.Drawing.Point(413, -2);
             this.tableOfValues1.Name = "tableOfValues1";
             this.tableOfValues1.SelectedRowIndex = -1;
-            this.tableOfValues1.Size = new System.Drawing.Size(662, 418);
+            this.tableOfValues1.Size = new System.Drawing.Size(618, 261);
             this.tableOfValues1.TabIndex = 8;
             // 
             // buttonAddConfig
