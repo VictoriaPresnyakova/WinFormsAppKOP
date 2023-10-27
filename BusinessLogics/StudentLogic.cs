@@ -63,5 +63,16 @@ namespace BusinessLogics
             }
             return _studentStorage.GetFilteredList(model);
         }
+
+        public string[] GetYears()
+        {
+            return _studentStorage.GetYears();
+        }
+
+        public double[] GetStudentCountByYear(string Education_Form)
+        {
+            return _studentStorage.GetStudentCountByYear(Education_Form);
+        }
+
     }
 }

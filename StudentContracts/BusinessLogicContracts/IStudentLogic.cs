@@ -13,5 +13,7 @@ namespace StudentContracts.BusinessLogicContracts
         List<StudentViewModel> Read(StudentBindingModel model);
         void CreateOrUpdate(StudentBindingModel model);
         void Delete(StudentBindingModel model);
+        string[] GetYears();
+        double[] GetStudentCountByYear(string Education_Form);
     }
 }

@@ -55,7 +55,7 @@ namespace BusinessLogics
             {
                 return _educationStorage.GetFullList();
             }
-            if (model.Id.HasValue)
+            if (!string.IsNullOrEmpty(model.Name))
             {
                 return new List<EducationViewModel> { _educationStorage.GetElement(model) };
             }

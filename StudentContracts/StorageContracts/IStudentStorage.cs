@@ -17,5 +17,9 @@ namespace StudentContracts.StorageContracts
         void Insert(StudentBindingModel model);
         void Update(StudentBindingModel model);
         void Delete(StudentBindingModel model);
+        string[] GetYears();
+        double[] GetStudentCountByYear(string Education_Form);
+
+
     }
 }

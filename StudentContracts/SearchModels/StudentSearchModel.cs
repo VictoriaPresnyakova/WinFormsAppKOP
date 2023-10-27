@@ -4,17 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentContracts.BindingModels
+namespace StudentContracts.SearchModels
 {
-    public class StudentBindingModel
+    public class StudentSearchModel
     {
-        public int? Id { get; set; }
+        public string Education_Form { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
-
-        public List<double>? Av_Score { get; set; }
-
-        public string Education_Form { get; set; }
 
         public DateTime Date { get; set; }
     }

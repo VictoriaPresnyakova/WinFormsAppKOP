@@ -49,6 +49,38 @@ namespace DataBaseImplements.Implements
                 .Select(CreateModel)
                 .ToList();
         }
+        public string[] GetYears()
+        {
+            var context = new Database();
+            List<int> uniqueYears = context.Students
+                .Select(student => student.Date.Year)
+                .Distinct()
+                .ToList();
+            string[] temp = new string[uniqueYears.Count];
+            for (int i = 0; i < uniqueYears.Count; i++)
+            {
+                temp[i] = uniqueYears[i].ToString();
+            }
+            return temp;
+        }
+
+        public double[] GetStudentCountByYear(string Education_Form)
+        {
+            var context = new Database();
+            var yearStudentCounts = context.Students
+                .Where(student => student.Education_Form == Education_Form)
+                .GroupBy(student => student.Date.Year)
+                .OrderBy(group => group.Key)
+                .Select(group => group.Count()
+                )
+                .ToList();
+            double[] temp = new double[yearStudentCounts.Count];
+            for (int i = 0; i < yearStudentCounts.Count; i++)
+            {
+                temp[i] = yearStudentCounts[i];
+            }
+            return temp;
+        }
 
         public List<StudentViewModel> GetFullList()
         {
@@ -114,9 +146,9 @@ namespace DataBaseImplements.Implements
         {
             string[] tempArray = student.Av_Score.Split(' ');
 
-            List<float> temps = new List<float>();
+            List<double> temps = new List<double>();
             foreach (string temp in tempArray)
-                temps.Add(float.Parse(temp));
+                temps.Add(double.Parse(temp));
 
             return new StudentViewModel
             {
@@ -128,5 +160,7 @@ namespace DataBaseImplements.Implements
 
             };
         }
+
+        
     }
 }
