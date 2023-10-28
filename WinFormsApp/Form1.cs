@@ -129,7 +129,7 @@ namespace WinFormsApp
             var generator = new GistogramPdfComponent3();
             var data = new List<HistogramData>
             {
-                new HistogramData { SeriesName = "Series 1", Data = new double[] { 10, 20, 30, 40, 50 } },
+                new HistogramData { SeriesName = "Series SSSSS", Data = new double[] { 10, 20, 30, 40, 50 } },
                 new HistogramData { SeriesName = "Series 2", Data = new double[] { 15, 25, 35, 45, 55 } }
             };
 

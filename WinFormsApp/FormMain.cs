@@ -229,7 +229,7 @@ namespace WinFormsApp
             {
                 new TableData
                 {
-                    Columns = list.Count,
+                    Columns = 6,
                     Data = data,
                 },
             };

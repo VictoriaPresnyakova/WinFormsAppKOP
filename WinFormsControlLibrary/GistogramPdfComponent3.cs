@@ -66,7 +66,7 @@ namespace WinFormsControlLibrary
                 // Добавляем данные в график
                 foreach (var dataPoint in data)
                 {
-                    Series series = new Series();
+                    Series series = new Series(dataPoint.SeriesName);
                     series.ChartType = SeriesChartType.Column;
 
                     if (dataPoint.Data != null && dataPoint.Data.Length > 0)
