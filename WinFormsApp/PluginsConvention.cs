@@ -158,10 +158,7 @@ namespace WinFormsApp
 
         public bool DeleteElement(PluginsConventionElement element)
         {
-            if (componentlBox1.SelectedIndex != -1)
-            {
-                if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
+            try { 
                     var selectedStudent = componentlBox1.GetObjectFromStr<StudentSearchModel>();
                     int id = Convert.ToInt32(selectedStudent.Id);
                     try
@@ -173,27 +170,57 @@ namespace WinFormsApp
                         MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     LoadData();
-                }
+                return true;
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Выберите студента для удаления");
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
         public Form GetForm(PluginsConventionElement element)
         {
-            throw new NotImplementedException();
+            if (element == null)
+            {
+                return new FormStudent(_educationLogic, _studentLogic);
+            }
+            if (element.Id.GetHashCode() >= 0)
+            {
+                FormStudent form = new FormStudent(_educationLogic, _studentLogic);
+                form.Id = element.Id.GetHashCode();
+                return form;
+            }
+            return null;
         }
 
         public Form GetThesaurus()
         {
-            throw new NotImplementedException();
+            return new FormEducation(_educationLogic);
         }
 
         public void ReloadData()
         {
-            throw new NotImplementedException();
+            LoadData();
+        }
+
+        private void Load()
+        {
+            string layoutInfo = "Форма обучения: {Education_Form} Идентификатор: {Id} ФИО: {Name} Дата поступления: {Date}";
+            componentlBox1.SetLayoutInfo(layoutInfo, "{", "}");
+            LoadData();
+        }
+        private void LoadData()
+        {
+            try
+            {
+                var list = _studentLogic.Read(null);
+                componentlBox1.AddInListBox(list);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

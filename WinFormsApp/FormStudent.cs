@@ -167,20 +167,5 @@ namespace WinFormsApp
             is_changed= true;
         }
 
-        private void FormStudent_FormClosing(object sender, FormClosingEventArgs e)
-        {
-           if (is_changed || DialogResult != DialogResult.OK)
-            {
-                var rezult = MessageBox.Show("Есть несохраненные данные. Выйти?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (rezult == DialogResult.Yes)
-                {
-                   DialogResult = DialogResult.Cancel;
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
-            }
-        }
     }
 }
