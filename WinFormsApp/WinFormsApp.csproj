@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogics\BusinessLogics.csproj" />
     <ProjectReference Include="..\DataBaseImplements\DataBaseImplements.csproj" />
+    <ProjectReference Include="..\Plugins\Plugins.csproj" />
     <ProjectReference Include="..\StudentContracts\StudentContracts.csproj" />
     <ProjectReference Include="..\WinFormsControlLibrary\WinFormsControlLibrary.csproj" />
   </ItemGroup>
